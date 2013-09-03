@@ -51,6 +51,6 @@ if __name__ == '__main__':
         print('Passed')
     else:
         print('Failed')
-        print('Install a current version of Python!')
-        print('http://www.python.org/download/releases/2.7.3/#download')
+        print("Didn't find the expected version of Python!")
+        print('Please contact Doug at dlatornell@eos.ubc.ca or in ESB-3053')
         _sys.exit(1)
