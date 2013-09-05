@@ -7,3 +7,5 @@ title: Setup Instructions for Windows
 {% include setup/windows-editor.html %}
 {% include setup/windows-anaconda.html %}
 {% include setup/windows-check-setup.html %}
+
+[Home](../index.html#setup)

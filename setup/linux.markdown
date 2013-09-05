@@ -8,3 +8,5 @@ title: Setup Instructions for Linux
 {% include setup/linux-editor.html %}
 {% include setup/linux-anaconda.html %}
 {% include setup/linux-check-setup.html %}
+
+[Home](../index.html#setup)
