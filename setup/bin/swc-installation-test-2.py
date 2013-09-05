@@ -74,7 +74,7 @@ CHECKS = [
     #'mercurial',       # Python package
     # 'EasyMercurial',
 # Build tools and packaging
-    'make',
+    # 'make',
     'virtual-pypi-installer',
     'setuptools',
     #'xcode',
