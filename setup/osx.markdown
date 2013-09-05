@@ -9,5 +9,5 @@ title: Setup Instructions for Max OS/X
 
 **TODO** Consider updating git instructions with Katie Cunningham's notes from Boston WISE bootcamp
 {% include setup/macosx-editor.html %}
-{% include setup/macosx-python.html %}
+{% include setup/macosx-anaconda.html %}
 {% include setup/macosx-check-setup.html %}
