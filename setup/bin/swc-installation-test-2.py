@@ -506,7 +506,7 @@ for command,long_name,minimum_version,paths in [
         ('dash', 'Debian Almquist Shell', None, None),
         ('tcsh', 'TENEX C Shell', None, None),
         ('zsh', 'Z Shell', None, None),
-        ('git', 'Git', (1, 7, 0), None),
+        ('git', 'Git', (1, 7, 0), _program_files_paths('Git', 'bin', 'git.exe')),
         ('hg', 'Mercurial', (2, 0, 0), None),
         ('EasyMercurial', None, (1, 3), None),
         ('pip', None, None, None),
