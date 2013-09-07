@@ -8,6 +8,6 @@ title: Intro to Shell
 {% include ubc-shell/goals.markdown %}
 
 ## Lesson overview
-{% include ubc-shell/instructors.html %}
+{% include guide-shell/instructors.html %}
 
 [Back to Topics](../../index.html#topics)
