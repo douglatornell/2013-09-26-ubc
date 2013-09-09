@@ -346,7 +346,7 @@ class Picture(object):
     @property
     def size(self):
         """Gets or sets the size of the picture with a (width, height) tuple"""
-        return (self._image.shape[0], self._image.shape[1])
+        return (self._image.shape[1], self._image.shape[0])
 
     @size.setter
     def size(self, value):
