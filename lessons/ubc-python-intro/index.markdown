@@ -12,14 +12,11 @@ title: Intro to Python
 
 ## Digging Deeper
 * Basic Python
-    * The [python-0-resize-image](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-0-resize-image.ipynb) notebook introduces Python in the context of manipulating image data
-    * **TODO** the standalone version of the `novice` module that is destined for the `scikit-image` package needs to be added to this directory
+  * The [python-0-resize-image](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-0-resize-image.ipynb) notebook introduces Python in the context of manipulating image data
 * Functions
   * The [python-1-functions](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-1-functions.ipynb) notebook covers defining and calling functions in Python and the call stack
-  * **TODO** it is missing a bunch of images about the call stack
 * Loops and Indexing
   * The [python-2-loops-indexing](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-2-loops-indexing.ipynb) notebook introduces closed-ended loops, sequences, and slices
-  * **TODO** the standalone `ipythonblocks` module needs to be added to this directory
 * Conditionals and Defensive Programming
   * The [python-3-conditionals-defensive](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-3-conditionals-defensive.ipynb) notebook introduces Booleans, conditional program flow, defensive programming with `assert` statements, and error handling via exceptions
   * **TODO** it needs to be augmented with the material `try/except` blocks from `swc-python/python-5-testing.ipynb`
@@ -29,4 +26,4 @@ title: Intro to Python
 ## References
 {% include ubc-python-intro/references.markdown %}
 
-[Back to Topics](../../index.html#topics)
+[Back to Topics]({{page.root}}/index.html#topics)
