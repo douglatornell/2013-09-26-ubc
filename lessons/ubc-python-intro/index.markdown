@@ -19,7 +19,6 @@ title: Intro to Python
   * The [python-2-loops-indexing](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-2-loops-indexing.ipynb) notebook introduces closed-ended loops, sequences, and slices
 * Conditionals and Defensive Programming
   * The [python-3-conditionals-defensive](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-3-conditionals-defensive.ipynb) notebook introduces Booleans, conditional program flow, defensive programming with `assert` statements, and error handling via exceptions
-  * **TODO** it needs to be augmented with the material `try/except` blocks from `swc-python/python-5-testing.ipynb`
 * Files and Lists
   * The [python-4-files-lists](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-4-files-lists.ipynb) notebook introduces reading text data from files, and using Python's perhaps most used data structure, the `list`.
 
