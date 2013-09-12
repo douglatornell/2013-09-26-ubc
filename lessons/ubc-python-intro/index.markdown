@@ -10,7 +10,16 @@ title: Intro to Python
 ## Python? What? Why?
 {% include ubc-python-intro/why_python.markdown %}
 
-## Digging Deeper
+## Digging In
+
+We're going to interactively work through the collection of IPython notebooks below.
+To get the notebooks and all of the supporting files,
+please download this [python-intro.zip](python-intro.zip) archive,
+and unzip it in the bootcamp repo that you setup during the [Intro to Version Control and Git]({{page.root}}/lessons/ubc-git-intro/index.html) lesson.
+Doing that should create a `python-intro` directory that you can add and commit to your repo.
+
+Now `cd` into the `python-intro` directory and launch `ipython notebook`.
+
 * Basic Python
   * The [python-0-resize-image](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-0-resize-image.ipynb) notebook introduces Python in the context of manipulating image data
 * Functions
