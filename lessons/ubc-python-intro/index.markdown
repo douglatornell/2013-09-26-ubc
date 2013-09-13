@@ -7,8 +7,9 @@ title: Intro to Python
 ## Learning Goals
 {% include ubc-python-intro/goals.markdown %}
 
-## Python? What? Why?
-{% include ubc-python-intro/why_python.markdown %}
+
+## [Python? What? Why? How?](why_python.html)
+
 
 ## Digging In
 
@@ -31,7 +32,9 @@ Now `cd` into the `python-intro` directory and launch `ipython notebook`.
 * Files and Lists
   * The [python-4-files-lists](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-4-files-lists.ipynb) notebook introduces reading text data from files, and using Python's perhaps most used data structure, the `list`.
 
+
 ## References
 {% include ubc-python-intro/references.markdown %}
+
 
 [Back to Topics]({{page.root}}/index.html#topics)
