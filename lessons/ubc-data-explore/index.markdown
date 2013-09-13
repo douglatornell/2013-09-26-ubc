@@ -10,7 +10,6 @@ title: Data Exploration with Python
   <li>intro NumPy and read data into arrays</li>
   <li>explore data with descriptive statistics</li>
   <li>intro Matplotlib and visualize data with plots</li>
-  <li>Does this lesson serve enough SWC purpose? It introduces NumPy and Matplotlib, provides practice wth Python, and provides data to work with on Day 2, but what does it contribute toward teaching computational competence?</li>
 </ul>
 
 
