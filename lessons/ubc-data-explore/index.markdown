@@ -16,4 +16,28 @@ title: Data Exploration with Python
 ## Learning Goals
 {% include ubc-data-explore/goals.markdown %}
 
+
+The IPython notebooks for this lesson are in [data-explore.zip](data-explore.zip).
+Please download that archive,
+unzip it in your bootcamp repo,
+then add and commit the files.
+
+##First, We Need Data...
+
+* Work in pairs
+* Use your browser to go to [http://climate.weather.gc.ca/](http://climate.weather.gc.ca/) and work your way through to the "Hourly Data Report" for yesterday at the `VANCOUVER INTL A` station
+* Download the August 2013 hourly data as a CSV file
+* Use your shell skills to confirm that:
+  * You really got a CSV file
+  * It's for the `VANCOUVER INTL A` station
+  * It contains hourly data for the whole month of August 2013
+* Move or copy the CSV file into the `data-explore/` directory in your repo and commit it
+* Back on the web page and use the "Nearby Stations with Data" link to get to the "Daily Data Report" for the `POINT ATKINSON` station
+* Download a different year's daily data as a CSV file at the `POINT ATKINSON` station (We'll map out who gets which year on the whiteboard)
+* Confirm that the file contains the data you expect, and commit it into your repo
+
+Each member of each pair should end up with a hourly data report for YVR in August 2013 in their repo,
+and a daily data report from Point Atkinson for a different year.
+
+
 [Back to Topics](../../index.html#topics)
