@@ -40,4 +40,17 @@ Each member of each pair should end up with a hourly data report for YVR in Augu
 and a daily data report from Point Atkinson for a different year.
 
 
+##Now for Exploration
+
+Launch Ipython notebook in your `data-explore/` directory and create a new notebook.
+We're going to interactively work through the following notebooks:
+
+* [data-explore-0-numpy](data-explore-0-numpy.ipynb): an introduction to [NumPy][numpy]
+* [data-explore-1-csv](data-explore-1-csv.ipynb): reading CSV data into [NumPy][numpy] arrays and manipulating it
+* [data-explore-2-matplotlib](data-explore-2-matplotlib.ipynb): an introduction to [Matplotlib][matplotlib]
+
+[numpy]: http://numpy.scipy.org/
+[matplotlib]: http://matplotlib.org/
+
+
 [Back to Topics](../../index.html#topics)
