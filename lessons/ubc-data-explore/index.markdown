@@ -24,7 +24,7 @@ then add and commit the files.
 
 ##First, We Need Data...
 
-* Work in pairs
+* Work in groups
 * Use your browser to go to [http://climate.weather.gc.ca/](http://climate.weather.gc.ca/) and work your way through to the "Hourly Data Report" for yesterday at the `VANCOUVER INTL A` station
 * Download the August 2013 hourly data as a CSV file
 * Use your shell skills to confirm that:
@@ -36,7 +36,7 @@ then add and commit the files.
 * Download a different year's daily data as a CSV file at the `POINT ATKINSON` station (We'll map out who gets which year on the whiteboard)
 * Confirm that the file contains the data you expect, and commit it into your repo
 
-Each member of each pair should end up with a hourly data report for YVR in August 2013 in their repo,
+Each member of each group should end up with a hourly data report for YVR in August 2013 in their repo,
 and a daily data report from Point Atkinson for a different year.
 
 
