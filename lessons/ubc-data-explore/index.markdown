@@ -42,7 +42,7 @@ and a daily data report from Point Atkinson for a different year.
 
 ##Now for Exploration
 
-Launch Ipython notebook in your `data-explore/` directory and create a new notebook.
+Launch IPython notebook in your `data-explore/` directory and create a new notebook.
 We're going to interactively work through the following notebooks:
 
 * [data-explore-0-numpy](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-data-explore/data-explore-0-numpy.ipynb): an introduction to [NumPy][numpy]
