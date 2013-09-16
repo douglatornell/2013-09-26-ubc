@@ -53,4 +53,8 @@ We're going to interactively work through the following notebooks:
 [matplotlib]: http://matplotlib.org/
 
 
+## References
+{% include ubc-data-explore/references.markdown %}
+
+
 [Back to Topics](../../index.html#topics)
