@@ -22,6 +22,7 @@ title: UBC-EOAS Bootcamp Introduction
 * Etherpad side channel: [etherpad.mozilla.org/7B5jDDjHHO](https://etherpad.mozilla.org/7B5jDDjHHO) courtesy of Mozilla
 * Breaks and lunch
 * Washrooms
+* EOAS Dept Colloquim at 16:00 today (next door): Mike Behrenfeld, OSU, *Ecological underpinnings of plankton blooms*
 
 
 ##Software Carpentry?
