@@ -8,6 +8,6 @@ title: Overall Learning Goals
 2. Use the shell to navigate and manipulate the file system, execute commands, and connect commands and/or files to one another.
 3. Use Python to explore and graphically render data, and to do calculations.
 4. Employ structured program design, testing, and test automation in the creation of code.
-5. Use bash and/or Python to automate tasks including processing files, interacting with the web, and doing scientific calculations
+5. Use bash and/or Python to automate tasks including processing files, interacting with the web, and doing scientific calculations.
 
 [Home](index.html#topics)
