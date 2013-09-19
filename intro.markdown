@@ -16,7 +16,7 @@ title: UBC-EOAS Bootcamp Introduction
 ##Mechanics
 
 * Home page: [douglatornell.github.io/2013-09-26-ubc](http://douglatornell.github.io/2013-09-26-ubc/)
-* Live-coding and hands-on learning
+* Live-coding, hands-on learning, work in groups
 * 2 screens!
 * Green and pink post-it notes - feedback in 2 ways
 * Etherpad side channel: [etherpad.mozilla.org/7B5jDDjHHO](https://etherpad.mozilla.org/7B5jDDjHHO) courtesy of Mozilla
