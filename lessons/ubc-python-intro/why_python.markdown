@@ -19,6 +19,7 @@ So, we'll teach you some Python, but you should be able to use the underlying co
 
 * Created in 1989 by Guido van Rossum, the BDFL
 * Clear, readable syntax
+* General purpose language
 * Well documented, free, and cross-platform
 * Expressive
 * Dynamic execution
