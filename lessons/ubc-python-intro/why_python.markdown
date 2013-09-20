@@ -50,7 +50,7 @@ and it's not science.
 So,
 we've recommended [Anaconda][anaconda],
 a curated distribution from [Continuum Analytics][continuum].
-Another such distribution is [Canopy][canopy] from [Enthough][enthought].
+Another such distribution is [Canopy][canopy] from [Enthought][enthought].
 
 [anaconda]: https://store.continuum.io/cshop/anaconda/
 [continuum]: http://continuum.io/
