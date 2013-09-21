@@ -29,6 +29,9 @@ The notebooks we're going to work through are:
 
 - [automation-0-requests](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-automation/automation-0-requests.ipynb):
 using the [requests library](http://docs.python-requests.org/) to get data from web sites
+- [automation-1-args](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-automation/automation-1-args.ipynb):
+creating a Python module that can be both used for imports and run from the command line,
+and handling command line arguments in Python
 
 
 ## References
