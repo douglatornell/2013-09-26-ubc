@@ -4,17 +4,34 @@ root: ../..
 title: Code Design and Testing
 ---
 
-##Planning Notes
-<ul>
-  <li>Readability, modularity, correctness, robustness; ref: <a href="http://software-carpentry.org/blog/2013/08/intecol13-good-code.html">http://software-carpentry.org/blog/2013/08/intecol13-good-code.html</a></li>
-  <li>Writing and running tests, test automation</li>
-  <li>Exercise based on 6 x 4 groups writing code and tests for descriptive statistics function: mean, median, mode, range, quantiles, variance or std deviation</li>
-  <li>Groups submit their results as github pull requests; if there's time, perhaps explore code review</li>
-  <li>Demo the role of tests in refactoring by collapsing median into quantiles with n=2</li>
-</ul>
-
 
 ## Learning Goals
 {% include ubc-testing/goals.markdown %}
+
+
+## Code Design and Testing
+
+Create and switch to a new `testing` branch in your repo.
+Create an `testing` directory and copy the `climate_data.py` from your `automation` directory file into it.
+Start `ipython notebook` in your `testing` directory.
+
+The notebook we're going to work through is:
+
+- [testing-0-unit-tests](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-testing/testing-0-unit-tests.ipynb):
+
+  - writing Python code to test our Python code
+  - using [pytest] to automatically find, run, and report test results
+  - using [coverage] to measure and report on unit test coverage of code
+  - ideas about how to set up automated baseline testing
+
+Most of the exercises will be done in your editor and at the command line.
+
+[pytest]: http://pytest.org/latest/
+[coverage]: http://nedbatchelder.com/code/coverage/
+
+
+## References
+{% include ubc-testing/references.markdown %}
+
 
 [Back to Topics](../../index.html#topics)
