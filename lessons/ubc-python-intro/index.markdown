@@ -28,7 +28,7 @@ Now `cd` into the `python-intro` directory and launch `ipython notebook`.
 * Loops and Indexing
   * The [python-2-loops-indexing](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-2-loops-indexing.ipynb) notebook introduces closed-ended loops, sequences, and slices
 * Conditionals and Defensive Programming
-  * The [python-3-conditionals-defensive](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-3-conditionals-defensive.ipynb) notebook introduces Booleans, conditional program flow, defensive programming with `assert` statements, and error handling via exceptions
+  * The [python-3-conditionals-defensive](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-3-conditionals-defensive.ipynb) notebook introduces Booleans, conditional program flow, defensive programming with `assert` statements
 * Files and Lists
   * The [python-4-data-types](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-4-data-types.ipynb) notebook introduces 4 of Python's compound data types: `list`, `tuple`, `set`, and dictionary (or `dict`)
 
