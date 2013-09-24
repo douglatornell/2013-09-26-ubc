@@ -6,11 +6,10 @@ title: Version Control with Git
 To-Do: 
 
 - exercises that make sense
-- git ignore
 - git diff more
 - git reset head
-- git checkout?
-- using gitk for visualizing the tree a bit more...
+- git checkout?i
+
 
 
 ## Opening
@@ -573,8 +572,6 @@ but we want to get back an earlier version of the introduction?
 To accomplish that,
 we'll need to explore branching.
 
-## Git ignore file setup -fix me
-
 ## Branching
 
 Here's where we are right now:
@@ -825,6 +822,13 @@ $ git log --oneline --topo-order --graph
 This ASCII art is fine for small sets of changes,
 but for anything significant,
 it's much better to use a proper GUI that can draw graphs using lines instead of characters.
+
+We can also use gitk which should be installed with most machines:
+
+```
+$ gitk
+```
+
 
 Branching strikes most newcomers as unnecessary complexity,
 particularly for single-author projects.
@@ -1084,6 +1088,25 @@ To show all the commits associated with these tags:
 ```
 $ git show Sent_to_PNAS
 ```
+
+
+## .git ignore file -Section to be run during intro to python:
+
+Sometimes there are files that you just don't want tracked by version control. If we don't do anything about them they will just clutter up our git status area and make it harder to focus on the changes that we are actually making. One way to ignore some of these files is by making a git ignore file. In your repository directory (where your .git folder resides) type
+
+```
+$ nano .gitignore
+```
+
+For us we will want to be ignoring .pyc files. let's see what happens when we add *.pyc to our gitignore file
+
+```
+$ git status
+```
+
+No difference, but we see that we do have to add and commit our .gitignore file. Once we do that we see that our files ending in .pyc are being ignored by git. This is also something useful to do with large files or even whole directories that reside within a repository. 
+
+
 
 
 ## Exercises--intersperse in the doc ##
