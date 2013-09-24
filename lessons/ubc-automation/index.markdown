@@ -32,7 +32,7 @@ using the [requests library](http://docs.python-requests.org/) to get data from 
 - [automation-1-args](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-automation/automation-1-args.ipynb):
 creating a Python module that can be both used for imports and run from the command line,
 and handling command line arguments in Python
-- [automation-1-shell](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-automation/automation-1-shell.ipynb):
+- [automation-2-shell](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-automation/automation-2-shell.ipynb):
 writing shell scripts to execute shell commands and/or Python scripts and using `at` and `cron` to defer and repeat execution of those scripts
 
 
