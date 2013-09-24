@@ -3,19 +3,13 @@ layout: lesson
 root: ../..
 title: Version Control with Git
 ---
-To-Do: 
-
-- exercises that make sense
-- git diff more
-- git reset head
-- git checkout?i
-
 
 
 ## Opening
 
-- would like to use Jessica Kerr's video game, infinite save analogy. 
-- 
+Doug will give intro to version control. 
+
+
 (Wolfman and Dracula have been hired by Universal Missions
 (a space services spinoff from Euphoric State University)
 to figure out where the company should send its next planetary lander.
@@ -103,16 +97,19 @@ $ git config --global color.ui "auto"
 On Windows using Notepad++ in the standard
 location for a 64-bit machine, you would use:
 
-'''
+```
  $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
-'''
+```
+
 
 
 On Mac, with TextWrangler if you installed TextWrangler's command line tools
 then you should have an "edit" command. So you can use the git command:
 
-''' $  git config --global core.editor "edit -w" 
-'''
+```
+$  git config --global core.editor "edit -w" 
+```
+
 
 
 Git commands are written `git verb`,
@@ -125,11 +122,12 @@ Let's make a change, save it to our file system, and then save it into git.
 
 Open a file "dummy.txt" and add a few lines of any text to it.  
 
-'''
+```
 $ echo 'hi, there' > dummy.txt
 $ echo 'this is a second line' >> dummy.txt
 $ echo 'note that I have to use >> to append to a file so that I do not overwrite previous content' >> dummy.txt
-'''
+```
+
 We can now start actually using Git.
 Let's create a directory for our work:
 
