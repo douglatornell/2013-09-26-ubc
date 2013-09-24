@@ -7,17 +7,18 @@ To-Do:
 
 - exercises that make sense
 - tags
-- rebasing
 - git ignore
 - git diff more
 - git reset head
-- git checkout
-- how does git merge decide what to merge? practice this?
+- git checkout?
+- using gitk for visualizing the tree a bit more...
 
 
 ## Opening
 
-Wolfman and Dracula have been hired by Universal Missions
+- would like to use Jessica Kerr's video game, infinite save analogy. 
+- 
+(Wolfman and Dracula have been hired by Universal Missions
 (a space services spinoff from Euphoric State University)
 to figure out where the company should send its next planetary lander.
 They want to be able to work on the plans at the same time,
@@ -26,10 +27,9 @@ If they take turns,
 each one will spend a lot of time waiting for the other to finish.
 On the other hand,
 if they work on their own copies and email changes back and forth
-they know that things will be lost, overwritten, or duplicated.
+they know that things will be lost, overwritten, or duplicated.)
 
-The right solution is to use [version control](glossary.html#version_control)
-to manage their work.
+The right solution is to use [version control] to manage their work.
 Version control is better than mailing files back and forth because:
 
 - It's hard (but not impossible) to accidentally overlook or overwrite someone's changes,
@@ -94,16 +94,44 @@ let's open a shell and configure a few things:
 
 ```
 $ git config --global user.name "Vlad Dracula"
+
 $ git config --global user.email "vlad@tran.sylvan.ia"
+
 $ git config --global color.ui "auto"
 ```
-# add in the git config editor
+
+
+- More setup if people do not have an editor set up. (How to bring this up? don't necessarily want to confuse if people have nano set up)
+On Windows using Notepad++ in the standard
+location for a 64-bit machine, you would use:
+
+'''
+ $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+'''
+
+
+On Mac, with TextWrangler if you installed TextWrangler's command line tools
+then you should have an "edit" command. So you can use the git command:
+
+''' $  git config --global core.editor "edit -w" 
+'''
+
 
 Git commands are written `git verb`,
 where `verb` is what we actually want it to do.
 In this case,we're setting three global configuration variables to tell it
 our name,our email address,and that we want it to colorize output.
 
+
+Let's make a change, save it to our file system, and then save it into git.
+
+Open a file "dummy.txt" and add a few lines of any text to it.  
+
+'''
+$ echo 'hi, there' > dummy.txt
+$ echo 'this is a second line' >> dummy.txt
+$ echo 'note that I have to use >> to append to a file so that I do not overwrite previous content' >> dummy.txt
+'''
 We can now start actually using Git.
 Let's create a directory for our work:
 
@@ -140,21 +168,21 @@ so please don't.
 
 We can ask Git for the status of our project at any time like this:
 
-```
+'''
 $ git status
-# On branch master
-#
-# Initial commit
-#
+ On branch master
+
+ Initial commit
+
 nothing to commit (create/copy files and use "git add" to track)
-```
+'''
 
 Let's add some notes about Mars's suitability as a base.
 (We'll echo the text to the file so that you can see what we're doing,
 but in real life you would use a text editor.)
 
-```
-$ echo "Cold and dry, but everything is my favorite color" > mars.txt
+'''
+ $ echo "Cold and dry, but everything is my favorite color" > mars.txt
 $ ls
 mars.txt
 $ git status
@@ -167,7 +195,7 @@ $ git status
 #
 #	mars.txt
 nothing added to commit but untracked files present (use "git add" to track)
-```
+'''
 
 The message "untracked files" means that there's a file in the directory
 that Git doesn't think it's repsonsible for managing.
@@ -179,7 +207,7 @@ $ git add mars.txt
 
 and check that the right thing happened like this:
 
-```
+'''
 $ git status
 # On branch master
 #
@@ -190,19 +218,19 @@ $ git status
 #
 #	new file:   mars.txt
 #
-```
+'''    
 
 Git now knows that it's supposed to keep tack of this file,
 but it *hasn't* recorded our changes for posterity---not yet.
 To do that,
 we need to run one more command:
 
-```
+'''
 $ git commit -m "Starting to think about Mars"
 [master (root-commit) f22b25e] Starting to think about Mars
  1 file changed, 1 insertion(+)
  create mode 100644 mars.txt
-```
+'''  
 
 When we run `git commit`,
 Git takes everything we have told it to save
@@ -212,25 +240,25 @@ We use the `-m` flag to specify a comment that we want saved as well
 to help us remember later on what we did and why.
 We can use `git status` to check that everything has been saved:
 
-```
+'''
 $ git status
 # On branch master
 nothing to commit, working directory clean
-```
+'''   
 
 We'll come back and explain what `branch master` means soon;
 for the moment,
 all we need to know is that once Git has saved things,
 we can ask it about their history:
 
-```
+'''
 $ git log
 commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 09:51:46 2013 -0400
 
-    Starting to think about Mars
-```
+Starting to think about Mars
+'''
 
 ## add more about git log
 
@@ -243,9 +271,8 @@ $ echo "The two moons may be a problem for Wolfman" >> mars.txt
 
 This time, `git status` tells us that the file has been modified,
 because Git already knows it's supposed to keep track of it:
-
-```
-$ git status
+'''
+ $ git status
 # On branch master
 # Changes not staged for commit:
 #   (use "git add <file>..." to update what will be committed)
@@ -254,7 +281,7 @@ $ git status
 #	modified:   mars.txt
 #
 no changes added to commit (use "git add" and/or "git commit -a")
-```
+ '''   
 
 The key phrase is in the last line:
 "no changes added to commit".
@@ -265,7 +292,7 @@ which shows us the differences between
 the current state of the file
 and the most recently saved version:
 
-```
+'''
 $ git diff
 diff --git a/mars.txt b/mars.txt
 index df0654a..315bf3a 100644
@@ -274,7 +301,7 @@ index df0654a..315bf3a 100644
 @@ -1 +1,2 @@
  Cold and dry, but everything is my favorite color
 +The two moons may be a problem for Wolfman
-```
+'''
 
 The output is rather cryptic,
 but we can break it down into pieces:
@@ -290,8 +317,7 @@ but we can break it down into pieces:
    you'll see the line we are adding marked with a '+'.
 
 Let's commit our change:
-
-```
+'''
 $ git commit -m "Concerns about Mars's moons on my furry friend"
 # On branch master
 # Changes not staged for commit:
@@ -301,18 +327,18 @@ $ git commit -m "Concerns about Mars's moons on my furry friend"
 #	modified:   mars.txt
 #
 no changes added to commit (use "git add" and/or "git commit -a")
-```
+'''
 
 Whoops:
 Git refuses to commit the changes because we didn't use `git add` first.
 Let's do that:
 
-```
+'''
 $ git add mars.txt
 $ git commit -m "Concerns about Mars's moons on my furry friend"
 [master 34961b1] Concerns about Mars's moons on my furry friend
  1 file changed, 1 insertion(+)
-```
+'''
 
 Git insists that we add files to the **set** we want to commit
 before actually committing anything
@@ -333,7 +359,7 @@ and `git commit` then copies them to long-term storage:
 
 The following commands show this in action:
 
-```
+'''
 $ echo "But the Mummy will appreciate the lack of humidity" >> mars.txt
 $ git diff
 diff --git a/mars.txt b/mars.txt
@@ -344,7 +370,8 @@ index 315bf3a..b36abfd 100644
  Cold and dry, but everything is my favorite color
  The two moons may be a problem for Wolfman
 +But the Mummy will appreciate the lack of humidity
-```
+'''
+
 So far, so good:
 we've made a change,
 and `git diff` tells us what it is.
@@ -544,6 +571,8 @@ what if we have added some material to the conclusion of our paper that we'd lik
 but we want to get back an earlier version of the introduction?
 To accomplish that,
 we'll need to explore branching.
+
+## Git ignore file setup -fix me
 
 ## Branching
 
@@ -1020,6 +1049,22 @@ The key phrase here is "fast forward"
 Since we had already resolved the conflicts between
 the copies of `moons.txt` in the `master` and `moons` branches,
 Git brings the result over on its own.
+
+
+##Git tags -fix me
+
+## Git rebase
+
+Another way to merge changes. "In Git, there are two main ways to integrate changes from one branch into another: the merge and the rebase. In this section you’ll learn what rebasing is, how to do it, why it’s a pretty amazing tool, and in what cases you won’t want to use it."
+
+makes for a cleaner history. 
+
+instead of merging you pretend that changes in one branch happened after another. 
+
+Do not rebase commits that you have pushed to a public repository.
+
+When you rebase stuff, you’re abandoning existing commits and creating new ones that are similar but different. 
+
 
 
 ## Exercises--intersperse in the doc ##
