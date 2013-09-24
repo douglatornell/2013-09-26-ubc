@@ -6,7 +6,6 @@ title: Version Control with Git
 To-Do: 
 
 - exercises that make sense
-- tags
 - git ignore
 - git diff more
 - git reset head
@@ -1053,9 +1052,38 @@ the copies of `moons.txt` in the `master` and `moons` branches,
 Git brings the result over on its own.
 
 
-##Git tags -fix me
+##Git tags
 
+Sometimes you will want to mark your work in a way that it isn't only referenced by your SHA-1 hash or by the log. You can use git tags for this. 
 
+First see if you have any tags available:
+
+```
+$ git tag
+```
+
+To tag the current commit with you tag you use the -a command with tag:
+
+```
+$ git tag -a Sent_to_PNAS
+```
+
+To give more of a description of a tag you can run it with the -m command:
+
+```
+$ git tag -a Sent_to_PNAS -m "Manuscript at stage when I sent it to be reviewed"
+```
+
+To add a tag a tag to a previous commit you type:
+
+```
+$ git tag Sent_to_PNAS [SHA-1 hash]
+```
+
+To show all the commits associated with these tags:
+```
+$ git show Sent_to_PNAS
+```
 
 
 ## Exercises--intersperse in the doc ##
