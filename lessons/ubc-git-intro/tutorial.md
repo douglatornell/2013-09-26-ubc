@@ -168,21 +168,19 @@ so please don't.
 
 We can ask Git for the status of our project at any time like this:
 
-'''
+```
 $ git status
  On branch master
-
  Initial commit
-
 nothing to commit (create/copy files and use "git add" to track)
-'''
+```
 
 Let's add some notes about Mars's suitability as a base.
 (We'll echo the text to the file so that you can see what we're doing,
 but in real life you would use a text editor.)
 
-'''
- $ echo "Cold and dry, but everything is my favorite color" > mars.txt
+```
+$ echo "Cold and dry, but everything is my favorite color" > mars.txt
 $ ls
 mars.txt
 $ git status
@@ -195,7 +193,7 @@ $ git status
 #
 #	mars.txt
 nothing added to commit but untracked files present (use "git add" to track)
-'''
+```
 
 The message "untracked files" means that there's a file in the directory
 that Git doesn't think it's repsonsible for managing.
@@ -207,7 +205,7 @@ $ git add mars.txt
 
 and check that the right thing happened like this:
 
-'''
+```
 $ git status
 # On branch master
 #
@@ -217,20 +215,20 @@ $ git status
 #   (use "git rm --cached <file>..." to unstage)
 #
 #	new file:   mars.txt
-#
-'''    
+```    
 
 Git now knows that it's supposed to keep tack of this file,
 but it *hasn't* recorded our changes for posterity---not yet.
 To do that,
 we need to run one more command:
 
-'''
+```
 $ git commit -m "Starting to think about Mars"
 [master (root-commit) f22b25e] Starting to think about Mars
  1 file changed, 1 insertion(+)
- create mode 100644 mars.txt
-'''  
+ create mode 100644 mars.txt 
+```
+ 
 
 When we run `git commit`,
 Git takes everything we have told it to save
@@ -240,25 +238,25 @@ We use the `-m` flag to specify a comment that we want saved as well
 to help us remember later on what we did and why.
 We can use `git status` to check that everything has been saved:
 
-'''
+```
 $ git status
 # On branch master
 nothing to commit, working directory clean
-'''   
+```   
 
 We'll come back and explain what `branch master` means soon;
 for the moment,
 all we need to know is that once Git has saved things,
 we can ask it about their history:
 
-'''
+```
 $ git log
 commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 09:51:46 2013 -0400
 
 Starting to think about Mars
-'''
+```
 
 ## add more about git log
 
@@ -271,7 +269,8 @@ $ echo "The two moons may be a problem for Wolfman" >> mars.txt
 
 This time, `git status` tells us that the file has been modified,
 because Git already knows it's supposed to keep track of it:
-'''
+
+```
  $ git status
 # On branch master
 # Changes not staged for commit:
@@ -281,7 +280,7 @@ because Git already knows it's supposed to keep track of it:
 #	modified:   mars.txt
 #
 no changes added to commit (use "git add" and/or "git commit -a")
- '''   
+```   
 
 The key phrase is in the last line:
 "no changes added to commit".
@@ -292,7 +291,7 @@ which shows us the differences between
 the current state of the file
 and the most recently saved version:
 
-'''
+```
 $ git diff
 diff --git a/mars.txt b/mars.txt
 index df0654a..315bf3a 100644
@@ -301,7 +300,8 @@ index df0654a..315bf3a 100644
 @@ -1 +1,2 @@
  Cold and dry, but everything is my favorite color
 +The two moons may be a problem for Wolfman
-'''
+```
+
 
 The output is rather cryptic,
 but we can break it down into pieces:
@@ -317,7 +317,7 @@ but we can break it down into pieces:
    you'll see the line we are adding marked with a '+'.
 
 Let's commit our change:
-'''
+```
 $ git commit -m "Concerns about Mars's moons on my furry friend"
 # On branch master
 # Changes not staged for commit:
@@ -327,18 +327,19 @@ $ git commit -m "Concerns about Mars's moons on my furry friend"
 #	modified:   mars.txt
 #
 no changes added to commit (use "git add" and/or "git commit -a")
-'''
+```
+
 
 Whoops:
 Git refuses to commit the changes because we didn't use `git add` first.
 Let's do that:
 
-'''
+```
 $ git add mars.txt
 $ git commit -m "Concerns about Mars's moons on my furry friend"
 [master 34961b1] Concerns about Mars's moons on my furry friend
- 1 file changed, 1 insertion(+)
-'''
+```
+
 
 Git insists that we add files to the **set** we want to commit
 before actually committing anything
@@ -359,7 +360,7 @@ and `git commit` then copies them to long-term storage:
 
 The following commands show this in action:
 
-'''
+```
 $ echo "But the Mummy will appreciate the lack of humidity" >> mars.txt
 $ git diff
 diff --git a/mars.txt b/mars.txt
@@ -370,7 +371,8 @@ index 315bf3a..b36abfd 100644
  Cold and dry, but everything is my favorite color
  The two moons may be a problem for Wolfman
 +But the Mummy will appreciate the lack of humidity
-'''
+```
+
 
 So far, so good:
 we've made a change,
