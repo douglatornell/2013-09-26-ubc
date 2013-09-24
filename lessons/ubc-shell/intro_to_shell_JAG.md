@@ -187,28 +187,8 @@ Everything we have seen so far works on Unix and its descendents, such as Linux 
 
 Instead of a forward slash, Windows uses a backslash to separate the names in a path. This causes headaches because Unix uses backslash for input of special characters. For example, if we want to put a space in a filename on Unix, we would write the filename as my\ results.txt. Please don't ever do this, though: if you put spaces, question marks, and other special characters in filenames on Unix, you can confuse the shell for reasons that we'll see shortly.
 
-Finally, Windows filenames and directory names are case insensitive: upper and lower case letters mean the same thing. This means that the path name C:\Users\Julia could be spelled c:\users\VLAD, C:\Users\Vlad, and so on. Some people argue that this is more natural: after all, "VLAD" in all upper case and "Vlad" spelled normally refer to the same person. However, it causes headaches for programmers, and can be difficult for people to understand if their first language doesn't use a cased alphabet.
+Finally, Windows filenames and directory names are case insensitive: upper and lower case letters mean the same thing. This means that the path name C:\Users\Julia could be spelled c:\users\JULIA, C:\Users\julia, and so on. Some people argue that this is more natural: after all, "JULIA" in all upper case and "Julia" spelled normally refer to the same person. However, it causes headaches for programmers, and can be difficult for people to understand if their first language doesn't use a cased alphabet.
 
-## Insert more relevant example ##
-Nelle's Pipeline: Organizing Files
-
-Knowing just this much about files and directories, Nelle is ready to organize the files that the protein assay machine will create. First, she creates a directory called north-pacific-gyre (to remind herself where the data came from). Inside that, she creates a directory called 2012-07-03, which is the date she started processing the samples. She used to use names like conference-paper and revised-results, but she found them hard to understand after a couple of years. (The final straw was when she found herself creating a directory called revised-revised-results-3.)
-
-Each of her physical samples is labelled according to her lab's convention with a unique ten-character ID, such as "NENE01729A". This is what she used in her collection log to record the location, time, depth, and other characteristics of the sample, so she decides to use it as part of each data file's name. Since the assay machine's output is plain text, she will call her files NENE01729A.txt, NENE01812A.txt, and so on. All 1520 files will go into the same directory.
-
-If she is in her home directory, Nelle can see what files she has using the command:
-
-    $ ls north-pacific-gyre/2012-07-03/
-
-Since this is a lot to type, she can take advantage of Bash's command completion. If she types:
-
-    $ ls no
-
-and then presses tab, Bash will automatically complete the directory name for her:
-
-    $ ls north-pacific-gyre/
-
-If she presses tab again, Bash will add 2012-07-03/ to the command, since it's the only possible completion. Pressing tab again does nothing, since there are 1520 possibilities; pressing tab twice brings up a list of all the files, and so on. This is called tab completion, and we will see it in many other tools as we go on.
 
 ### Exercises ###
 #### Exercise 1 ####
@@ -228,7 +208,7 @@ We said earlier that spaces in path names have to be marked with a leading backs
 without the backslashes? 
 
 
-# Creating files
+# Creating files #
 
 ## Objectives ##
 
@@ -240,7 +220,7 @@ without the backslashes?
 ### Duration: 10 minutes.
 
 
-We now know how to explore files and directories, but how do we create them in the first place? Let's go back to Vlad's home directory, /users/Julia, and use `ls -F` to see what it contains:
+We now know how to explore files and directories, but how do we create them in the first place? Let's go back to Julia's home directory, /users/Julia, and use `ls -F` to see what it contains:
 
 $ pwd
 /users/Julia
@@ -276,8 +256,15 @@ Let's change our working directory to thesis using `cd`, then run an editor call
 Nano is a very simple text editor that only a programmer could really love. Figure 9 shows what it looks like when it runs: the cursor is the blinking square in the upper left, and the two lines across the bottom show us the available commands. (By convention, Unix documentation uses the caret ^ followed by a letter to mean "control plus that letter", so ^O means Control+O.)
 
 
-Let's type in a short quotation (Figure 10) then use Control-O to write our data to disk. Once our quotation is saved, we can use Control-X to quit the editor and return to the shell.
+Let's type in a short quotation(FIXME!!!) then use Control-O to write our data to disk. Once our quotation is saved, we can use Control-X to quit the editor and return to the shell.
 
+
+		Student exercise: Make a new directory and make a new file. Check that it is present. Check the content. (list the step. 
+
+		#type in your data and then to save you hit Ctl-O (^ caret is used for ctrl (I used to think it was carrot thinking it was an upside down carrot))
+		
+		Save by hitting Ctrl O and then Ctrl -X to exit. 
+		
 #### Which Editor? ####
 
 When we say, "nano is a text editor," we really do mean "text": it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because almost anyone can drive it anywhere without training, but please use something more powerful for real work. On Unix systems (such as Linux and Mac OS X), many programmers use Emacs or Vim (both of which are completely unintuitive, even by Unix standards), or a graphical editor such as Gedit. On Windows, you may wish to use Notepad++.
@@ -303,6 +290,13 @@ Unfortunately, Unix reports sizes in disk blocks by default, which might be the 
     $
 
 Here, 512 is the number of bytes in the file. This is more than we actually typed in because the smallest unit of storage on the disk is typically a block of 512 bytes.
+
+		ls 
+		Ok we're in the directory. How does we find out what is here? Type this command to list all files in directory. 
+		 
+		If we need to see hidden files or directories we can type ls -a "list all"
+		
+		ls -la  # long all
 
 Let's tidy up by running rm draft.txt:
 
@@ -362,7 +356,7 @@ This removes everything in the directory, then the directory itself. If the dire
 Let's create that directory and file one more time. (Note that this time we're running nano with the path thesis/draft.txt, rather than going into the thesis directory and running nano on draft.txt there.)
 
     $ pwd
-    /users/Julia/thesis
+    /users/Julia/
     $ mkdir thesis
     $ nano thesis/draft.txt
     $ ls thesis
@@ -412,7 +406,7 @@ To prove that we made a copy, let's delete the quotes.txt file in the current di
 
 #### Another Useful Abbreviation ####
 
-The shell interprets the character `~` (tilde) at the start of a path to mean "the current user's home directory". For example, if Vlad's home directory is /home/Julia, then ~/data is equivalent to /home/Julia/data. This only works if it is the first character in the path: /~ is not the user's home directory, and here/there/~/elsewhere is not /home/Julia/elsewhere.
+The shell interprets the character `~` (tilde) at the start of a path to mean "the current user's home directory". For example, if Julia's home directory is /home/Julia, then ~/data is equivalent to /home/Julia/data. This only works if it is the first character in the path: /~ is not the user's home directory, and here/there/~/elsewhere is not /home/Julia/elsewhere.
 
 
 ### Exercises ###
@@ -462,6 +456,104 @@ Why do you think cp's behavior is different from mv's?
 
 The command `ls -R` lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command `ls -t` lists things by time of last change, with most recently changed files or directories first. In what order does `ls -R -t` display things? 
 
+
+### Exercise 5 ### 
+
+Make a new file called "temperature_observations.txt".
+In it write the date in ISo format- 2013-09-24 and and space and the temperature for the last 3 days. 
+Save file.
+copy this file to thesis/observations
+
+		
+	Dealing with data in a file
+	Purpose: Slicing and dicing data from one and multiple data files
+	Student exercises: Sort abundance file and print highest abundance to new file, loop over multiple files and keep highest  abundance.
+	
+	Create file with names (date, species, abundance)
+	(have draft of what I want it to look like---mammals we see at UW)
+	nano  mammal_abundance_UW.txt
+	
+	
+	What type of data should we record: let's say we went out and looked at animal abundances on Campus. Let's record what we saw:
+	
+	2013-02-26 Squirrel 5
+	2013-02-26 Doves 7
+	2013-02-26 Cats 8
+	2013-02-26 Humans 4000
+	
+	
+	(type info)
+	cat mammal_abundance_UW.txt
+	
+	See file. Ok now what do we want to do with it?
+	
+	• Let's say we want to sort this by the abundance column from highest to lowest. Which is column 3 (but in unix would that be 2 right. We count starting at 0. 0,1,2)
+	• We will use the command sort, we will specify what we want is in the 3rd column and we will tell unix that we want to sort by numbers
+	
+	sort -k 2 n mammal_abundance_UW.txt
+	
+	-get an output. 
+	Ok cool we have sorted this file by abundance most to least. 
+	
+	We could also do it least to most:
+	
+	sort -k 2 n -r mammal_abundance_UW.txt
+	
+	This gives least to most. 
+	
+	If we wanted to do it alphabetically by the mammal names we could write:
+	
+	sort -k 1 mammal_abundance_UW.txt
+	
+	We can also do this on a comma-delimited files by using -t. We can find out many things about these unix commands on the internet, but also by going to the manual that comes with the programs. 
+	
+	man sort 
+	
+	(Read through file a bit, point out ways we could sort the file)
+	
+	Ok well let's say we wanted to save this sorted file to a new file. We will do that by typing:
+	
+	sort -k 1 mammal_abundance_UW.txt >  (what do we want to call this?)sorted_mammal_abundance_UW.txt
+	
+	ok notice that nothing appeared on the screen. This is because we are redirecting the output to the file. 
+	
+	Check to see if file is there:
+	
+	ls
+	
+	cat sorted_mammal_abundance_UW.txt
+	
+	Ok we have a new file with the sorted abundances. Cool. We can use this redirection with a number of commands to send the output to a new file. 
+
+		
+	Ok what if we wanted to find the top 2 most abundant  mammals and print out hat only that. We could use our sorted file and  a command called head. This is a useful command for quickly looking at the beginning of files. I use it to quickly check the beginning of large files (eg. how a fasta file from a sequencing run looks). 
+	
+	Test out what just plain head does:
+	
+	head sorted_mammal_abundance_UW.txt
+	
+	Should see all of the file since it is short.
+	
+	We can tell head that we only want  to see the top 2 lines:
+	
+	head -2 sorted_mammal_abundance_UW.txt
+	
+	
+	(might seem confusing here that when we want 2 we actually say that, not like when we are counting  columns)
+	
+	gives us the first 2 lines. 
+	
+	so if we wanted to  to see the end of the file we could use something called tail:
+	
+	tail sorted_mammal_abundance_UW.txt
+	
+	Should give us everything. What if we wanted the last 2 lines of the file:
+	
+	tail -2 sorted_mammal_abundance_UW.txt
+	
+	Student exercise:  using our unsorted record of abundances  mammal_abundance_UW.txt find  the 2nd and 3rd most abundance organisms with their lines and print this to a new file. 
+
+
 # Pipes and filters
 
 ## Objectives ##
@@ -478,17 +570,19 @@ The command `ls -R` lists the contents of directories recursively, i.e., lists t
 
 
 
-Now that we know a few basic commands, we can finally look at its most powerful feature: the ease with which it lets you combine existing programs in new ways. We'll start with a directory called molecules that contains six files describing some simple organic molecules. The .pdb extension indicates that these files are in Protein Data Bank format, a simple text format that specifies the type and position of each atom in the molecule.
+Now that we know a few basic commands, we can finally look at its most powerful feature: the ease with which it lets you combine existing programs in new ways. We'll start with a directory called "observations"
+
+Let's create 3 files. Temperature observations in Vancouver, Iqaluit, St. John's Newfoundland. Do 5 for Vancouver, 2 for Iqaluit and 4 for St John's
 
     $ ls molecules
-    cubane.pdb ethane.pdb methane.pdb
-    octane.pdb pentane.pdb   propane.pdb
+    temperature_observations_Vancouver.txt temperature_observations_Iqaluit.txt
+    temperature_observations_StJohns.txt
     $
 
-Let's go into that directory with `cd` and run the command `wc *.pdb`. `wc` is the "word count" command: it counts the number of lines, words, and characters in files. The * in *.pdb matches zero or more characters, so the shell turns *.pdb into a complete list of .pdb files:
+Let's go into that directory with `cd` and run the command `wc *.txt`. `wc` is the "word count" command: it counts the number of lines, words, and characters in files. The * in *.txt matches zero or more characters, so the shell turns *.txt into a complete list of .txt files:
 
     $ cd molecules
-    $ wc *.pdb
+    $ wc *.txt
       20  156 1158 cubane.pdb
       12   84  622 ethane.pdb
        9   57  422 methane.pdb
@@ -508,7 +602,7 @@ When the shell sees a wildcard, it expands it to create a list of filenames befo
 
 If we run `wc -l` instead of just `wc`, the output shows only the number of lines per file:
 
-    $ wc -l *.pdb
+    $ wc -l *.txt
       20  cubane.pdb
       12  ethane.pdb
        9  methane.pdb
@@ -579,11 +673,11 @@ The vertical bar between the two commands is called a pipe. It tells the shell t
 
 Well, if we don't need to create the temporary file sorted-lengths, can we get rid of the lengths file too? The answer is "yes": we can use another pipe to send the output of wc directly to sort, which then sends its output to head:
 
-    $ wc -l *.pdb | sort | head -1
+    $ wc -l *.txt | sort | head -1
       9  methane.pdb
     $
 
-This is exactly like a mathematician nesting functions like sin(πx)2 and saying "the square of the sine of x times π": in our case, the calculation is "head of sort of word count of *.pdb".
+This is exactly like a mathematician nesting functions like sin(πx)2 and saying "the square of the sine of x times π": in our case, the calculation is "head of sort of word count of *.txt".
 
 ### Inside Pipes ###
 
@@ -596,12 +690,12 @@ The shell is just another program, and runs in a process like any other. Under n
 When we run a program, the shell creates a new process. It then temporarily sends whatever we type on our keyboard to that process's standard input, and whatever the process sends to standard output to the screen (Figure 13):
 
 
-Here's what happens when we run `wc -l *.pdb > lengths`. The shell starts by telling the computer to create a new process to run the wc program. Since we've provided some filenames as parameters, wc reads from them instead of from standard input. And since we've used > to redirect output to a file, the shell connects the process's standard output to that file (Figure 14).
+Here's what happens when we run `wc -l *.txt > lengths`. The shell starts by telling the computer to create a new process to run the wc program. Since we've provided some filenames as parameters, wc reads from them instead of from standard input. And since we've used > to redirect output to a file, the shell connects the process's standard output to that file (Figure 14).
 Running One Program with Redirection Figure 14: Running One Program with Redirection
 
-If we run wc -l *.pdb | sort instead, the shell creates two processes, one for each process in the pipe, so that wc and sort run simultaneously. The standard output of wc is fed directly to the standard input of sort; since there's no redirection with >, sort's output goes to the screen (Figure 15):
+If we run wc -l *.txt | sort instead, the shell creates two processes, one for each process in the pipe, so that wc and sort run simultaneously. The standard output of wc is fed directly to the standard input of sort; since there's no redirection with >, sort's output goes to the screen (Figure 15):
 
-And if we run `wc -l *.pdb | sort | head -1`, we get the three processes shown in Figure 16 with data flowing from the files, through wc to sort, and from sort through head to the screen.
+And if we run `wc -l *.txt | sort | head -1`, we get the three processes shown in Figure 16 with data flowing from the files, through wc to sort, and from sort through head to the screen.
 
 
 This simple idea is why Unix has been so successful. Instead of creating enormous programs that try to do many different things, Unix programmers focus on creating lots of simple tools that each do one job well, and work well with each other. Ten such tools can be combined in 100 ways, and that's only looking at pairings: when we start to look at pipes with multiple stages, the possibilities are almost uncountable.
@@ -786,12 +880,12 @@ grep's real power doesn't come from its options, though; it comes from the fact 
     Today it is not working
     Software is like that.
     
-We use the `-E` flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a '*', for example, the shell would try to expand it before running grep.) The '^' in the pattern anchors the match to the start of the line. The '.' matches a single character (just like '?' in the shell), while the 'o' matches an actual 'o'.
+We use the `-E` flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a '*', for example, the shell would try to expand it before running grep.) *Discuss this further......Shell expands it at the command line?? "With expansion, you type something and it is expanded into something else before the shell acts upon it. When the enter key is pressed, the shell automatically expands any qualifying characters on the command line before the command is carried out, so the echo command never saw the “*”, only its expanded result." The '^' in the pattern anchors the match to the start of the line. The '.' matches a single character (just like '?' in the shell), while the 'o' matches an actual 'o'.
 
 While grep finds lines in files, the find command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we'll use the directory tree in Figure 18:
 Sample Files and Directories Figure 18: Sample Files and Directories
 
-Vlad's home directory contains one file called notes.txt and four subdirectories: thesis (which is sadly empty), data (which contains two files first.txt and second.txt), a tools directory that contains the programs format and stats, and an empty subdirectory called old.
+Julia's home directory contains one file called notes.txt and four subdirectories: thesis (which is sadly empty), data (which contains two files first.txt and second.txt), a tools directory that contains the programs format and stats, and an empty subdirectory called old.
 
 For our first command, let's run find . -type d. . is the directory where we want our search to start; -type d means "things that are directories". Sure enough, find's output is the names of the five directories in our little tree (including ., the current working directory):
 
@@ -988,6 +1082,42 @@ She then runs:
 
 and heads off to a seminar, confident that by the time she comes back tomorrow, top100.txt will contain the results she needs for her paper.
 
+	Ok and before we get too ahead of ourselves it is great that we can use the up arrow to scroll through the past commands that we have used:
+	
+	history
+	
+	If we want we can send the print out of this command to a file. Good for our record keeping:
+	
+	history > command_log_2013_02_26.txt
+
+	
+	(cut -d, -f 1 data.txt
+	cut by delimeter: "," so can choose the appropriate columns
+	select only the word  squirrel)
+	
+
+	
+	wc -l  mammal_abundance_UW.txt, mammal_abundance_UBC.txt
+	
+	But how can I do this more efficiently rather than repeating this command for each file (going to make a mistake!)? I can use a wildcard to expand to multiple files.  
+	wildcards- eg * to expand to all matching 
+	explain the expansion
+			
+	first test what this asterisk will give us
+	
+	ls *.* 
+	(should give us all of the files in our directory)
+	
+	ls *.txt 
+	(should give us all the text files)
+	
+	ls  mammal_abundance_*.txt
+	 (should give us the abundance count log files and no others. Important to check to make sure it is working as you expect)
+	
+	wc -l mammal_abundance_*.txt
+	
+	(Could I have one more file and I could show  how to use "."?)
+
 ### Exercises ###
 
 #### Exercise 1 ####
@@ -996,7 +1126,7 @@ and heads off to a seminar, confident that by the time she comes back tomorrow, 
 find . -name '*.dat' -print | wc -l | sort -n
 
 
-### Other exercises ###
+### Other exercises--Optional. To be removed or edited down.  ###
 
 # Shell
 
@@ -1277,391 +1407,4 @@ more of the file.
 
   **Answer:**
   >     $ grep -v "^#" 1000gp.vcf | cut -f 1 | sort | uniq -c | sort -k 2n
-
-
-## Exercise Part 3 (scripts and svn)
-* Wonderful! Now we have a (long) command for printing chromosome statistics
-  from our `1000gp.vcf` file. Using `nano`, create a new file, "chrom_stats.sh",
-  with just your answer to the previous question in it.
-
-  **Answer:**
-  >  Type the following to open a new file:
-  >     $ nano chrom_stats.sh
-  >  Type in the command. Type ^o to save and ^x (where ^ means the control key).
-
-* Just to be illustrate the flexibility of the shell, try creating the same file
-  directly from the shell (without a text editor). Once you do, you can use
-  `cat` to make sure the contents of the file are exactly what you expect.
-
-  **Hint:**
-  > You can use `echo` to print something and `>` to redirect to a file.
-
-  **Hint:**
-  > Since our long command has double-quotes in it, you either need to use
-  > single-quotes or escape these with back-slashes.
-
-  **Answer:**
-    $ echo 'grep -v "^#" 1000gp.vcf | cut -f 1 | sort | uniq -c | sort -k 2n' > chrom_stats.sh
-    $ cat chrom_stats.sh
-
-* Now, execute your new script to print the chromosome statistics.
-
-  **Hint:**
-  > You may have to change the permissions to allow you to execute it.
-
-  **Hint:**
-  > It's good form to only make permissions as permissive as necessary. So,
-  > rather than allow everyone to execute the file, it is better to just allow
-  > you to execute it.
-
-  **Answer:**
-    $ chmod u+x chrom_stats.sh
-    $ ./chrom_stats.sh
-
-  > Note that it is `u+x` instead of just `+x` or `a+x`. This only adds the
-  > ability for the owner to execute it, whereas the other two options would
-  > allow anyone to execute it.
-
-* We'd like to be able to use this script in the future with arbitrary VCF
-  files, instead of just our `1000gp.vcf` file. Edit the script so that it takes
-  VCF-formatted text input on stdin and prints out chromosome statistics on
-  stdout. This is simpler than you might think.
-
-  **Hint:**
-  > If `grep` isn't given an input file, it will read from stdin.
-
-  **Answer:**
-  > Change
-  > `grep -v "^#" 1000gp.vcf | ...`
-  > to
-  > `grep -v "^#" | ...`
-  > 
-  > Since this is in a file instead of the shell prompt, we aren't showing the
-  > "$" at the beginning of the line.
-
-* Now that we have a script that reads from stdin and prints to stdout, how do
-  we run it on the `1000gp.vcf` file to get the same output as before?
-
-  **Hint:**
-  > The `cat` command is used to print files to stdout.
-
-  **Hint:**
-  > You can pipe the output of `cat` directly into our script.
-
-  **Hint:**
-  > Just like before, in order to tell the shell that the `chrom_stats.sh` file
-  > we want to execute is the one in our current directory, we need to use
-  > `./chrom_stats.sh`.
-
-  **Answer:**
-  `$ cat 1000gp.vcf | ./chrom_stats.sh`
-
-* Finally, add a copy of this file to your folder in the class SVN repository.
-  1. `cp chrom_stats.sh /path/to/repo/participants/user/`
-  2. Add the file to subversion version control
-  3. Commit your changes
-
-**Fin.** 
-Comments, questions, and suggestions are encouraged and appreciated.
-Thanks to Tommy Guy, Jon Pipitone, Greg Wilson, and Elango Cheran for their help
-with these exercises.
-
-
-## Old stuff to be incorporated. ## 
-
-	• Talk about what we'll go over today: basic manipulations in shell of files, then how to use shell scripts to automate programs (want to show integration-use git too).  (I will try not to make it seem like a cooking show too much by using pre-made files)
-	• What is shell and why do we want to do things at the command line?
-	• discuss why and how it is different than a gui. 
-		○ Different way to interact with a computer.
-		○ very efficient way to get a computer to repeat things
-		○ Also shell is a great way to get programs to work well together
-	
-	
-	File and directory structure
-	Purpose: Gain comfort with shell file and directory structure by moving between directories, creating files, moving and copying files.  We are going to go quite quickly through this part so that  we can all speak the lingo and get to stringin g the unix programs together. 
-	Student exercises: Make copy of file and move to new directory. 
-	Commands:
-	
-	Where  you're at and where things are going to….: Shell lets you use small programs to do specific things. Once you know how to use these specific things you can combine them to  do more complicated things. 
-	
-	
-		whoami #which user is logged on. In the virtual box you should see that you are software carpentry. 
-		
-		pwd  #Unix for "print working directory". 
-		This shows which directory you are in. Unix uses the same file directory system that most of use  are familiar with, where  we have directories with files in them and directories within them. 
-		The difference is that we're not going to use a gui to navigate between them which might sound onerous, but with some little tricks we should be able to do it rapidly. 
-		(where were we working yesterday in directory?? make new  directory with date mkdir 2013-02-26)
-		
-		ls 
-		Ok we're in the directory. How does we find out what is here? Type this command to list all files in directory. 
-		 
-		If we need to see hidden files or directories we can type ls -a "list all"
-		
-		ls -la  # long all
-		
-		cd 
-		#so we want to go back to the other directory,we can change directories. 
-		cd .. 
-		# goes to directory one up from the working directory.
-		
-		What about ?
-		
-		cd . 
-		
-		#pressing "up" in terminal-enables to scroll through past commands
-		
-		#So if we want to make a new directory you can type 
-		mkdir 2013-02-26
-		
-		#If we want to make a new directory not nested in the one we are in we can also do that 
-		mkdir /users/newstuff/
-		
-		Change to directory
-		(Discuss tab completion)
-		(for cygwin windows-   cd /cygdrive/c/Users/….)
-		#ok lets make a file from the shell. We will call the editor and we can already give it the name of the file. 
-		
-		nano Seattle.txt
-		
-		#type in your data and then to save you hit Ctl-O (^ caret is used for ctrl (I used to think it was carrot thinking it was an upside down carrot))
-		
-		Great to be in Seattle today. Maybe it rains less here….
-		
-		Save by hitting Ctrl O and then Ctrl -X to exit. 
-		
-		Do we see our file?
-		
-		ls
-		
-		Ok it is there. Is there a quick way without going into nano again that would let us see what is in our file?
-		
-		cat data.txt
-		
-		Shows us  what is in the file.  
-		
-		Student exercise: Make a new directory and make a new file. Check that it is present. Check the content. (list the step. 
-		
-		Copying- Let's say that we need to make a copy of this file. We will type the name of the file and then its new name's. Let's make a copy and call it something more descriptive. So in this case the command is "cp." So first give it the name of the file you are trying to copy and then the new file name for the copy. 
-		
-		 cp data.txt  mammal_abundance_UW.txt
-		
-		Moving files- if we want to move a file from one spot to another we can use the command mv. This is also how we rename files. 
-		
-		mv data.txt  /Workshop
-		
-		mv data.txt ..
-		
-		Where would this send the file and what would we expect to find there?
-		
-		To use mv to rename we can give the destination a new filename
-		
-		mv data.txt data_current.txt
-		
-		And finally if we need to delete something we can use rm-for remove. And just a note that there is no "trash" or "recycling" bin in the unix shell.  Type rm file to remove a file or rmdir directory to remove a directory if it is empty. 
-		
-		rm data.txt
-		
-		rmdir emptyfolder 
-		
-		(If you really need to remove a directory with stuff still in it then you can use rm -rf dirname")
-		
-		Student exercise: Make copy of data.txt  and move to new directory. 
-		
-		
-	Dealing with data in a file
-	Purpose: Slicing and dicing data from one and multiple data files
-	Student exercises: Sort abundance file and print highest abundance to new file, loop over multiple files and keep highest  abundance.
-	
-	Create file with names (date, species, abundance)
-	(have draft of what I want it to look like---mammals we see at UW)
-	nano  mammal_abundance_UW.txt
-	
-	
-	What type of data should we record: let's say we went out and looked at animal abundances on Campus. Let's record what we saw:
-	
-	2013-02-26 Squirrel 5
-	2013-02-26 Doves 7
-	2013-02-26 Cats 8
-	2013-02-26 Humans 4000
-	
-	
-	(type info)
-	cat mammal_abundance_UW.txt
-	
-	See file. Ok now what do we want to do with it?
-	
-	• Let's say we want to sort this by the abundance column from highest to lowest. Which is column 3 (but in unix would that be 2 right. We count starting at 0. 0,1,2)
-	• We will use the command sort, we will specify what we want is in the 3rd column and we will tell unix that we want to sort by numbers
-	
-	sort -k 2 n mammal_abundance_UW.txt
-	
-	-get an output. 
-	Ok cool we have sorted this file by abundance most to least. 
-	
-	We could also do it least to most:
-	
-	sort -k 2 n -r mammal_abundance_UW.txt
-	
-	This gives least to most. 
-	
-	If we wanted to do it alphabetically by the mammal names we could write:
-	
-	sort -k 1 mammal_abundance_UW.txt
-	
-	We can also do this on a comma-delimited files by using -t. We can find out many things about these unix commands on the internet, but also by going to the manual that comes with the programs. 
-	
-	man sort 
-	
-	(Read through file a bit, point out ways we could sort the file)
-	
-	Ok well let's say we wanted to save this sorted file to a new file. We will do that by typing:
-	
-	sort -k 1 mammal_abundance_UW.txt >  (what do we want to call this?)sorted_mammal_abundance_UW.txt
-	
-	ok notice that nothing appeared on the screen. This is because we are redirecting the output to the file. 
-	
-	Check to see if file is there:
-	
-	ls
-	
-	cat sorted_mammal_abundance_UW.txt
-	
-	Ok we have a new file with the sorted abundances. Cool. We can use this redirection with a number of commands to send the output to a new file. 
-
-		
-	Ok what if we wanted to find the top 2 most abundant  mammals and print out hat only that. We could use our sorted file and  a command called head. This is a useful command for quickly looking at the beginning of files. I use it to quickly check the beginning of large files (eg. how a fasta file from a sequencing run looks). 
-	
-	Test out what just plain head does:
-	
-	head sorted_mammal_abundance_UW.txt
-	
-	Should see all of the file since it is short.
-	
-	We can tell head that we only want  to see the top 2 lines:
-	
-	head -2 sorted_mammal_abundance_UW.txt
-	
-	
-	(might seem confusing here that when we want 2 we actually say that, not like when we are counting  columns)
-	
-	gives us the first 2 lines. 
-	
-	so if we wanted to  to see the end of the file we could use something called tail:
-	
-	tail sorted_mammal_abundance_UW.txt
-	
-	Should give us everything. What if we wanted the last 2 lines of the file:
-	
-	tail -2 sorted_mammal_abundance_UW.txt
-	
-	Student exercise:  using our unsorted record of abundances  mammal_abundance_UW.txt find  the 2nd and 3rd most abundance organisms with their lines and print this to a new file. 
-	
-	Ok great solutions, but maybe we can make your life easier. What we did the sorting of the files we created one or two intermediate files to get to our answer. What if we could just use the output of one command as the input for another?? Yes we can. To do this we can use pipes. Pipes and tubes, sounds like some underground thing, but really it is this character: "|" which looks like a straight line (what is it called also ???)
-	
-	So do our first problem where we wanted to find the most abundant species and print only that...we could write:
-	
-	sort -k 2 n mammal_abundace_UW.txt | head -1 
-	
-	If we want to send it to a file we can also do that:
-	
-	sort -k 2 n mammal_abundace_UW.txt | head -1 > most_abundant_mammal_UW.txt
-	
-	-need to create several files do word counting on. 
-	-copy file and make changes to it. use it for different days, add different mammals. 
-	
-	(cut -d, -f 1 data.txt
-	cut by delimeter: "," so can choose the appropriate columns
-	select only the word  squirrel)
-	
-	
-	Which file has the greatest number of records?
-	Always good to have the answer in mind that you expect or work with the subset of the data that is manageable so that you can see if your code is doing what you expect/want it to do.
-	
-	can use word count  wc to count the number of lines in a file
-	
-	wc -l  mammal_abundance_UW.txt (what are some of the options for this??)
-	
-	For multiple files
-	
-	wc -l  mammal_abundance_UW.txt, mammal_abundance_UBC.txt
-	
-	But how can I do this more efficiently rather than repeating this command for each file (going to make a mistake!)? I can use a wildcard to expand to multiple files.  
-	wildcards- eg * to expand to all matching 
-	explain the expansion
-			
-	first test what this asterisk will give us
-	
-	ls *.* 
-	(should give us all of the files in our directory)
-	
-	ls *.txt 
-	(should give us all the text files)
-	
-	ls  mammal_abundance_*.txt
-	 (should give us the abundance count log files and no others. Important to check to make sure it is working as you expect)
-	
-	wc -l mammal_abundance_*.txt
-	
-	(Could I have one more file and I could show  how to use "."?)
-	
-	Ok and before we get too ahead of ourselves it is great that we can use the up arrow to scroll through the past commands that we have used:
-	
-	history
-	
-	If we want we can send the print out of this command to a file. Good for our record keeping:
-	
-	history > command_log_2013_02_26.txt
-	
-	So what if we wanted to find which file is shortest? easy with 6 (could do our - how about 6000?
-	doing things with 6000 is just as easy as with 6!"
-		
-		-grep-should be an extended example. What if I wanted to find all lines in several files that contained "squirrels" and then aggregate these:
-		grep squirrel mammal_abundance_*.txt
-		
-		returns lines that contain squirrel
-		
-		maybe we want to sort the files in order of abundance  and then show the line number telling us the rank order of squirrels is:
-		
-		sort -k 2 -n mammal_abundance_*.txt | grep -n squirrel
-		
-		(show basic regular expression stuff… ??) 
-		
-		
-		
-	Discuss the scenario if we want to do something to each file separately. (expand) test this out!
-		Illustrate  the difference between running the sor t on all file s and then running as a loop.
-	For loops: 
-	for datafile in data_*
-	    do
-	        echo $datafile
-	        sort -k 2 -n $datafile
-	    done
-	 So starting to get a bit unwieldy so we can put these files in .sh file and run in bash. 
-	
-	bash sorting_abundances.sh
-	
-	
-	What about another loop with numbers 1-10
-	
-	for number in {1,2,3,4}
-	    do
-	             echo $number
-	    done 
-	
-	What would be even better is 
-	
-	for number in {1..4}
-	    do
-	             echo $number
-	    done 
-	
-	Show how to use with a program e.g. otu picking??
-	
-	
-	Ok doesn't seem that useful except when you have to run a program using different values. 
-	(shebang and comments to script)
-	then ls  etc for made files
-
-
-
 
