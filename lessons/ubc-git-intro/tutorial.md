@@ -264,7 +264,7 @@ which shows the differences
 ```
 $ git log --pretty=oneline
 ```
-gives a more compact format.
+gives a more compact format. Can also do --pretty=short or fuller
 And for fun we can see: 
 
 ```
