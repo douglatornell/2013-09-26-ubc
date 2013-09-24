@@ -254,7 +254,23 @@ Date:   Thu Aug 22 09:51:46 2013 -0400
 Starting to think about Mars
 ```
 
-## add more about git log
+There are many commands you can use git log. Such as 
+
+```
+$ git log -p
+```
+which shows the differences
+
+```
+$ git log --pretty=oneline
+```
+gives a more compact format.
+And for fun we can see: 
+
+```
+$ git log --pretty=format:"%h %s" --graph
+```
+
 
 Now suppose Dracula adds more information to the file
 (remember, `>>` appends rather than overwriting):
