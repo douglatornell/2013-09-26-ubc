@@ -1055,17 +1055,6 @@ Git brings the result over on its own.
 
 ##Git tags -fix me
 
-## Git rebase
-
-Another way to merge changes. "In Git, there are two main ways to integrate changes from one branch into another: the merge and the rebase. In this section you’ll learn what rebasing is, how to do it, why it’s a pretty amazing tool, and in what cases you won’t want to use it."
-
-makes for a cleaner history. 
-
-instead of merging you pretend that changes in one branch happened after another. 
-
-Do not rebase commits that you have pushed to a public repository.
-
-When you rebase stuff, you’re abandoning existing commits and creating new ones that are similar but different. 
 
 
 
