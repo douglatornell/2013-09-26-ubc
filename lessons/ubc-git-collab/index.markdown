@@ -9,7 +9,6 @@ title: Git and Github for Collaboration
   <li>Compile a repo containing all of the hourly and daily YVR data that people downloaded and explored on Thu</li>
   <li>Merge the data into long timeseries of hourly quantities and daily rainfall; 6 groups doing a different quantity each</li>
   <li>Contribute the timeseries to the repo</li>
-  <li>How does branching, merging, and (maybe) rebasing get covered?</li>
 </ul>
 
 
