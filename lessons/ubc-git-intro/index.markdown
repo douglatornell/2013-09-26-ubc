@@ -15,4 +15,10 @@ title: Intro to Version Control and Git
 ## Learning Goals
 {% include ubc-git-intro/goals.markdown %}
 
+
+## Intro to Version Control
+
+* [A few slides](https://docs.google.com/presentation/d/1QUSuBaXb9d1n6PI5-mUkdaMQ7fiNcsc1JjMiiAnkUxc/edit?usp=sharing) about the basic concepts of version control and the history of version control tools
+
+
 [Back to Topics](../../index.html#topics)
