@@ -29,6 +29,8 @@ Most of the exercises will be done in your editor and at the command line.
 [pytest]: http://pytest.org/latest/
 [coverage]: http://nedbatchelder.com/code/coverage/
 
+The notebook for this lesson is available in this [testing.zip](testing.zip) archive.
+
 
 ## References
 {% include ubc-testing/references.markdown %}

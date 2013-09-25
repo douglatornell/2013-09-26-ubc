@@ -24,7 +24,7 @@ and handling command line arguments in Python
 - [automation-2-shell](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-automation/automation-2-shell.ipynb):
 writing shell scripts to execute shell commands and/or Python scripts and using `at` and `cron` to defer and repeat execution of those scripts
 
-The notebooks and supporting files for this lesson are available in this [automation.zip](automation.zip) archive.
+The notebooks for this lesson are available in this [automation.zip](automation.zip) archive.
 
 
 ## References
