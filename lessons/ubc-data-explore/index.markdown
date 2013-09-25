@@ -43,6 +43,8 @@ We're going to interactively work through the following notebooks:
 [numpy]: http://numpy.scipy.org/
 [matplotlib]: http://matplotlib.org/
 
+The notebooks and supporting files for this lesson are available in this [data-explore.zip](data-explore.zip) archive.
+
 
 ## References
 {% include ubc-data-explore/references.markdown %}
