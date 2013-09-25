@@ -141,7 +141,7 @@ so that he can incorporate Dracula's feedback
 and get further review
 as often as necessary.
 
-
+##Move this to right before the collaborative part??? I think this would make more sense. 
 #If I do this example I would have to tell students not to follow along for a minute or so. Or maybe I should just move this section. 
 Rather than the model shown above,
 most programmers therefore use a slightly more complex model.
