@@ -7,4 +7,4 @@ Learning goals for Intro to Version Control and Git lesson of UBC-EOAS Sep-2013 
 3. Practice adding files to the version control system
 4. Understand how to go back to previous versions of files
 5. Practice using branches
-6. Practice merging and resolving conflicts
+6. Practice merging
