@@ -385,7 +385,6 @@ remotes/origin/master
 or 
 ```
 git remote -v
-```
 
 We can now see why Git, Mercurial, and other modern version control systems
 use branching so much:
@@ -535,3 +534,17 @@ Sharing might seem like the only valid choice for science,
 but many institutions may not allow researchers to do this,
 either because they want to protect future patent applications
 or simply because what's new is often also frightening.
+
+
+#From conflict part:
+Step 2 : Mirror the remote upstream repository in your master branch (in
+this case your YYYY-MM-PLACE branch) by pulling down my changes
+
+    $ git checkout YYYY-MM-PLACE
+    Switched to branch 'YYYY-MM-PLACE'
+    $ git fetch upstream
+    $ git merge upstream/YYYY-MM-PLACE
+    Updating 43844ea..3b36a87
+    Fast-forward
+     README.rst |   2 +-
+     1 files changed, 1 insertions(+), 1 deletions(-)
