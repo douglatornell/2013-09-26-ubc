@@ -16,7 +16,6 @@ title: Git and Github for Collaboration
 {% include ubc-git-collab/goals.markdown %}
 
 ## Plan for session
-## Learning Goals
 {% include ubc-git-collab/sections.md %}
 
 [Back to Topics](../../index.html#topics)
