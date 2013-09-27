@@ -1,5 +1,4 @@
 
-
 #To-do:
 - git hub 
 - git fetch+merge vs. pull
@@ -12,6 +11,8 @@
 # Ordering of exercises:
 - merge conflicts
 - git add remote for local repository
+- group work on 1 repo
+- everyone forking a repo and adding a file
 
 ## Git- Collaborating
 # Git - add remote
