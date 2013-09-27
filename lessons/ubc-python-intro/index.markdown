@@ -32,6 +32,17 @@ Now `cd` into the `python-intro` directory and launch `ipython notebook`.
 * Files and Lists
   * The [python-4-data-types](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/python-4-data-types.ipynb) notebook introduces 4 of Python's compound data types: `list`, `tuple`, `set`, and dictionary (or `dict`)
 
+Here are the exercise notebooks that were created during the sessions.
+They are sparse compared to the annotated notebooks above,
+but they are the live-coding,
+hands-on work that we did:
+
+* [resize](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/resize.ipynb)
+* [functions](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/functions.ipynb)
+* [loops](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/loops.ipynb)
+* [conditionals](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/conditionals.ipynb)
+* [data_types](http://nbviewer.ipython.org/url/douglatornell.github.io/2013-09-26-ubc/lessons/ubc-python-intro/data_types.ipynb)
+
 
 ## References
 {% include ubc-python-intro/references.markdown %}
