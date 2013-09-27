@@ -6,9 +6,146 @@
 - git fetch+merge vs. pull
 - make sure they are signed up for github.
 - first create their own repo on github (and put their files from yesterday in it?) and then clone ours with some files to work on, or should we just be confident that they will go with it?
-- 
+
+# Ordering of exercises:
+- merge conflicts
+- git add remote for local repository
+
+## git merge : Conflicts
+
+This is the trickiest part of version control, so let's take it very
+carefully.
+
+In the YYYY-MM-PLACE code, you'll find a file called Readme.md. This is a
+standard documentation file that appears rendered on the landing page
+for the repository in github. To see the rendered version, visit your
+fork on github, (https://github.com/YOU/boot-camps/tree/YYYY-MM-PLACE/README.md).
+
+For illustration, let's imagine that, suddenly, each of the developers
+on the YYYY-MM-PLACE code would like to welcome visitors in a language other
+than English. Since we're all from so many different places and speak
+so many languages, there will certainly be disagreements about what to
+say instead of "Welcome."
+
+I, for example, am from Tamil Nadu, India, so I'll push (to the upstream
+repository) my own version of Welcome on line 5 of Readme.md.
+
+You may speak another language, perhaps even English, however, and may want
+to replace the Tamil word 'vanakkam' with an equivalent word that you
+prefer (welcome, willkommen, bienvenido, benvenuti, etc.).
+
+You'll want to start a new branch for development. It's a good convention
+to think of your master branch (in this case your YYYY-MM-PLACE branch) as
+the "production branch," typically by keeping that branch clean of your
+local edits until they are ready for release. Developers typically use the
+master branch of their local fork to track other developers changes in the
+remote repository until their own local development branch changes are
+ready for production.
+
+### Exercise : Experience a Conflict
+
+Step 1 : Make a new branch, edit the readme file in that branch, and
+commit your changes.
+
+    $ git branch development
+    $ git checkout development
+    Switched to branch 'development'
+    $ kate Readme.md &
+    <edit the readme file and exit kate>
+    $ git commit -am "Changed the welcome message to ... "
+	
+Step 2 :
+make changes to a file in your directory that will conflict
+- make new branch
+- make changes to a certain part of the file
+-  add changes
+- commit changes
+- checkout master branch
+- make changes to the same part of the file
+- add changes
+- commit changes
+- merge python branch into master
+- will get conflict!
+- open file in nano
+- see the 2 different options. It lets you choose which one you will take or you could  even take a combination of the 2
+- save file
+- add change
+- commit change
+- voila conflict solved! 
+
+
+Step 3 : You want to push it to the internet eventually, so you pull
+updates from the upstream repository, but will experience a conflict.
+
+    $ git merge development
+    Auto-merging Readme.md
+    CONFLICT (content): Merge conflict in Readme.md
+    Automatic merge failed; fix conflicts and then commit the result.
+
+## git resolve : Resolving Conflicts
+
+Now what?
+
+Git has paused the merge. You can see this with the **git status**
+command.
+
+    # On branch YYYY-MM-PLACE
+    # Unmerged paths:
+    #   (use "git add/rm <file>..." as appropriate to mark resolution)
+    #
+    #       unmerged:      Readme.md
+    #
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+The only thing that has changed is the Readme.md file. Opening it,
+you'll see something like this at the beginning of the file.
+
+    =====================
+    <<<<<<< HEAD
+    Vanakkam
+    =======
+    Willkommen
+    >>>>>>> development
+    =====================
+
+The intent is for you to edit the file, knowing now that I wanted the
+Welcome to say Vanakkam. If you want it to say Willkommen, you should
+delete the other lines. However, if you want to be inclusive, you may
+want to change it to read Vanakkam and Willkommen. Decisions such as this
+one must be made by a human, and why conflict resolution is not handled
+more automatically by the version control system.
+
+    Vanakkam and Willkommen
+
+This results in a status To alert git that you have made appropriate
+alterations,
+
+    $ git add Readme.md
+    $ git commit
+    Merge branch 'development'
+
+    Conflicts:
+      Readme.md
+    #
+    # It looks like you may be committing a MERGE.
+    # If this is not correct, please remove the file
+    # .git/MERGE_HEAD
+    # and try again.
+    #
+    $ git push origin YYYY-MM-PLACE
+    Counting objects: 10, done.
+    Delta compression using up to 2 threads.
+    Compressing objects: 100% (6/6), done.
+    Writing objects: 100% (6/6), 762 bytes, done.
+    Total 6 (delta 2), reused 0 (delta 0)
+    To git@github.com:username/boot-camps.git
+
+- practice this a few times. 
+- or could we get them to make repos with their neighbours to practice working as a small team and then making conflicts?
+
 
 ## Git- Collaborating
+# Git - add remote
 
 Version control really comes into its own
 when we begin to collaborate with other people.
@@ -51,9 +188,7 @@ $ cd planets
 $ git init
 ```
 
-We're now in the situation shown in the figure below:
-
-Our local repository still has two branches called `master` and `moons`,
+Our local repository still has one branch called 'master',
 with the same contents as before.
 The remote repository on GitHub only has a single branch,
 `master`,
@@ -82,8 +217,8 @@ We can check that the command has worked by running `git remote -v`:
 
 ```
 $ git remote -v
-origin   https://github.com/yourname/planets.git (push)
-origin   https://github.com/yourname/planets.git (fetch)
+origin   https://github.com/yourname/bootcamp.git (push)
+origin   https://github.com/yourname/bootcamp.git (fetch)
 ```
 
 There's nothing special about the name `origin`:
@@ -100,7 +235,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (23/23), done.
 Writing objects: 100% (27/27), 2.62 KiB, done.
 Total 27 (delta 5), reused 0 (delta 0)
-To https://github.com/gvwilson/planets.git
+To https://github.com/jooolia/bootcamp.git
  * [new branch]      master -> master
 ```
 
@@ -141,8 +276,9 @@ so that he can incorporate Dracula's feedback
 and get further review
 as often as necessary.
 
-##Move this to right before the collaborative part??? I think this would make more sense. 
-#If I do this example I would have to tell students not to follow along for a minute or so. Or maybe I should just move this section. 
+# Git clone
+ 
+#If I do this example I would have to tell students not to follow along for a minute or so.
 Rather than the model shown above,
 most programmers therefore use a slightly more complex model.
 When the project starts,
@@ -168,6 +304,9 @@ origin	    https://github.com/vlad/undersea.git (push)
 ```
 
 Dracula can now push and pull changes just as before.
+
+
+# Git fork 
 
 Wolfman doesn't clone Dracula's GitHub repository directly.
 Instead,
@@ -384,129 +523,9 @@ or simply because what's new is often also frightening.
 
 
 
-## git merge : Conflicts
 
-This is the trickiest part of version control, so let's take it very
-carefully.
 
-In the YYYY-MM-PLACE code, you'll find a file called Readme.md. This is a
-standard documentation file that appears rendered on the landing page
-for the repository in github. To see the rendered version, visit your
-fork on github, (https://github.com/YOU/boot-camps/tree/YYYY-MM-PLACE/README.md).
 
-For illustration, let's imagine that, suddenly, each of the developers
-on the YYYY-MM-PLACE code would like to welcome visitors in a language other
-than English. Since we're all from so many different places and speak
-so many languages, there will certainly be disagreements about what to
-say instead of "Welcome."
-
-I, for example, am from Tamil Nadu, India, so I'll push (to the upstream
-repository) my own version of Welcome on line 5 of Readme.md.
-
-You may speak another language, perhaps even English, however, and may want
-to replace the Tamil word 'vanakkam' with an equivalent word that you
-prefer (welcome, willkommen, bienvenido, benvenuti, etc.).
-
-You'll want to start a new branch for development. It's a good convention
-to think of your master branch (in this case your YYYY-MM-PLACE branch) as
-the "production branch," typically by keeping that branch clean of your
-local edits until they are ready for release. Developers typically use the
-master branch of their local fork to track other developers changes in the
-remote repository until their own local development branch changes are
-ready for production.
-
-### Exercise : Experience a Conflict
-
-Step 1 : Make a new branch, edit the readme file in that branch, and
-commit your changes.
-
-    $ git branch development
-    $ git checkout development
-    Switched to branch 'development'
-    $ kate Readme.md &
-    <edit the readme file and exit kate>
-    $ git commit -am "Changed the welcome message to ... "
-
-Step 2 : Mirror the remote upstream repository in your master branch (in
-this case your YYYY-MM-PLACE branch) by pulling down my changes
-
-    $ git checkout YYYY-MM-PLACE
-    Switched to branch 'YYYY-MM-PLACE'
-    $ git fetch upstream
-    $ git merge upstream/YYYY-MM-PLACE
-    Updating 43844ea..3b36a87
-    Fast-forward
-     README.rst |   2 +-
-     1 files changed, 1 insertions(+), 1 deletions(-)
-
-Step 3 : You want to push it to the internet eventually, so you pull
-updates from the upstream repository, but will experience a conflict.
-
-    $ git merge development
-    Auto-merging Readme.md
-    CONFLICT (content): Merge conflict in Readme.md
-    Automatic merge failed; fix conflicts and then commit the result.
-
-## git resolve : Resolving Conflicts
-
-Now what?
-
-Git has paused the merge. You can see this with the **git status**
-command.
-
-    # On branch YYYY-MM-PLACE
-    # Unmerged paths:
-    #   (use "git add/rm <file>..." as appropriate to mark resolution)
-    #
-    #       unmerged:      Readme.md
-    #
-    no changes added to commit (use "git add" and/or "git commit -a")
-
-The only thing that has changed is the Readme.md file. Opening it,
-you'll see something like this at the beginning of the file.
-
-    =====================
-    <<<<<<< HEAD
-    Vanakkam
-    =======
-    Willkommen
-    >>>>>>> development
-    =====================
-
-The intent is for you to edit the file, knowing now that I wanted the
-Welcome to say Vanakkam. If you want it to say Willkommen, you should
-delete the other lines. However, if you want to be inclusive, you may
-want to change it to read Vanakkam and Willkommen. Decisions such as this
-one must be made by a human, and why conflict resolution is not handled
-more automatically by the version control system.
-
-    Vanakkam and Willkommen
-
-This results in a status To alert git that you have made appropriate
-alterations,
-
-    $ git add Readme.md
-    $ git commit
-    Merge branch 'development'
-
-    Conflicts:
-      Readme.md
-    #
-    # It looks like you may be committing a MERGE.
-    # If this is not correct, please remove the file
-    # .git/MERGE_HEAD
-    # and try again.
-    #
-    $ git push origin YYYY-MM-PLACE
-    Counting objects: 10, done.
-    Delta compression using up to 2 threads.
-    Compressing objects: 100% (6/6), done.
-    Writing objects: 100% (6/6), 762 bytes, done.
-    Total 6 (delta 2), reused 0 (delta 0)
-    To git@github.com:username/boot-camps.git
-
-- practice this a few times. 
-- or could we get them to make repos with their neighbours to practice working as a small team and then making conflicts?
 ## Now we're ready to try it with some data we want to use later on. 
 - Now we fork the repo that Doug and I have designed that has a few scripts (note that you can only have 1 fork of a repo).
 - Paste address into etherpad
@@ -540,3 +559,17 @@ Each person will also have daily data for an entire year at Point Atkinson. One 
 )
 # will they be named differently?
 Then goal is to have 25 similar daily datasets that can be iterated over in the automation part. 
+
+
+#From conflict part:
+Step 2 : Mirror the remote upstream repository in your master branch (in
+this case your YYYY-MM-PLACE branch) by pulling down my changes
+
+    $ git checkout YYYY-MM-PLACE
+    Switched to branch 'YYYY-MM-PLACE'
+    $ git fetch upstream
+    $ git merge upstream/YYYY-MM-PLACE
+    Updating 43844ea..3b36a87
+    Fast-forward
+     README.rst |   2 +-
+     1 files changed, 1 insertions(+), 1 deletions(-)
